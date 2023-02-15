@@ -19,4 +19,4 @@ def get_target(sector):
 df = get_target('Industrials')
 
 
-st.write(master_dic)
+st.write(df)
