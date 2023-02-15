@@ -32,7 +32,7 @@ end_time = st.dateinput(
     max_value = datetime.date.today()
 )
 
-df_custom = 
+
 def ret_calc(df):
     output = pd.DataFrame()
     for col in df.columns:
