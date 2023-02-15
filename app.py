@@ -34,6 +34,7 @@ end_time = st.date_input(
     max_value = datetime.date.today()
 )
 
+custom_df = df[df.Date>start_time & df.Date<end_time]
 
 def ret_calc(df):
     output = pd.DataFrame()
@@ -41,5 +42,5 @@ def ret_calc(df):
         output[f'{col} return'] = df[col]/df[col].shift(1)-1
         output['sector_return'] = df.sum(axis = 1)/df.sum(axis = 1).shift(1) - 1
     return output
-ret_df = ret_calc(df)
+ret_df = ret_calc(custom_df)
 st.write(ret_df)
