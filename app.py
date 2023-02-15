@@ -54,5 +54,5 @@ if chart_type == 'cumulative':
 elif chart_type == 'daily':
     yvar = 'sector_return'
 
-fig = px.line(ret_df, y = 'cum_return')
+fig = px.line(ret_df, y = yvar)
 st.plotly_chart(fig)
