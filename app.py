@@ -17,5 +17,5 @@ def get_target(sector):
     return output
 close_price_df = get_target('INDUSTRIALS')
 
-st.write(tickers_dic)
-st.write(tickers_df)
+
+st.write(close_price_df)
