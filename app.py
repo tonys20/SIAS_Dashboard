@@ -16,7 +16,14 @@ def get_target(sector):
     for ticker in tickers_dic[sector]:
         output[f'{ticker} Adj Close'] = yf.download(tickers = ticker, start ='1999-11-30', end =str(today), interval ='1d')['Adj Close']
     return output
-close_price_df = get_target('INDUSTRIALS')
+@st.cache
+def collect_df():
+    output = dict()
+    for sector in sectors_ls:
+        output[sector]= get_target(sector)
+    return output
+
+master_dic = collect_df()
 
 
-st.write(close_price_df)
+st.write(master_dic)
