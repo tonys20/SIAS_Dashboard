@@ -3,6 +3,7 @@ import yfinance as yf
 import pandas as pd 
 import os
 import datetime
+import plotly.express as px
 
 tickers_df = pd.read_csv('TICKERS.csv')
 sectors_ls = tickers_df.SECTOR.unique()
