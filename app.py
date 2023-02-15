@@ -45,5 +45,5 @@ def ret_calc(df):
     return output
 ret_df = ret_calc(custom_df)
 st.write(ret_df)
-fig = px.line(ret_df, y = 'sector_return')
+fig = px.line(ret_df, y = 'cum_return')
 st.plotly_chart(fig)
