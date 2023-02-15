@@ -18,14 +18,14 @@ def get_target(sector):
     return output
 df = get_target('Industrials')
 
-start_time = st.dateinput(
+start_time = st.date_input(
     'From:',
     value = datetime.date(1999, 11, 30),
     min_value = datetime.date(1999, 11, 30),
     max_value = datetime.date.today()
 )
 
-end_time = st.dateinput(
+end_time = st.date_input(
     'From:',
     value = datetime.date(1999, 11, 30),
     min_value = start_time,
