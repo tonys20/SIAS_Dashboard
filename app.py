@@ -34,7 +34,7 @@ end_time = st.date_input(
     max_value = datetime.date.today()
 )
 
-custom_df = df.loc[df['Date']>start_time & df['Date']<end_time]
+custom_df = df.loc[df.index>start_time & df.index<end_time]
 
 def ret_calc(df):
     output = pd.DataFrame()
