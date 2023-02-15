@@ -18,5 +18,10 @@ def get_target(sector):
     return output
 df = get_target('Industrials')
 
-
-st.write(df)
+def ret_calc(df):
+    output = pd.DataFrame()
+    for col in df.columns:
+        output[f'{col} return'] = df[col]/df[col].shift(1)-1
+    return output
+ret_df = ret_calc(df)
+st.write(ret_df)
