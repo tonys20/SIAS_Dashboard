@@ -51,8 +51,10 @@ st.write(ret_df)
 
 if chart_type == 'cumulative':
     yvar = 'cum_return'
+    y_label = f'Cumulative Return for {sector_selected}'
 elif chart_type == 'daily':
     yvar = 'sector_return'
+    y_label = f'Daily Return for {sector_selected}'
 
 fig = px.line(ret_df, y = yvar).update_layout(yaxis_title=chart_type)
 st.plotly_chart(fig)
