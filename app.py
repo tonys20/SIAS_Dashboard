@@ -4,7 +4,7 @@ import pandas as pd
 import os
 
 def get_tickers():
-    targetdir = os.path.join(os.getcwd(), 'tickers')
+    targetdir = os.path.join(os.getcwd(), 'tickers.txt')
     ticker_dic ={}
     for filename in filter(lambda p: p.endswith('txt'), os.listdir(targetdir)):
         filepath =os.path.join(targetdir, filename)
