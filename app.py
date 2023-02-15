@@ -28,7 +28,7 @@ start_time = st.date_input(
 end_time = st.date_input(
     'From:',
     value = datetime.date(1999, 11, 30),
-    min_value = start_time,
+    min_value = datetime.date(1999, 11, 30),
     max_value = datetime.date.today()
 )
 
