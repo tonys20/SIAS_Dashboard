@@ -22,7 +22,7 @@ def ret_calc(df):
     output = pd.DataFrame()
     for col in df.columns:
         output[f'{col} return'] = df[col]/df[col].shift(1)-1
-        output['sector_return'] = df.sum(axis = 1)
+        output['sector_return'] = df.sum(axis = 1)/df.sum(axis = 1).shift(1) - 1
     return output
 ret_df = ret_calc(df)
 st.write(ret_df)
