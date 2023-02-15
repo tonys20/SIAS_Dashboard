@@ -6,4 +6,4 @@ import os
 tickers_df = pd.read_csv('TICKERS.csv')
 tickers_ls = tickers_df.SECTOR.unique()
 st.write(tickers_ls)
-st.write(tickers)
+st.write(tickers_df)
