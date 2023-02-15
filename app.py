@@ -3,5 +3,6 @@ import yfinance as yf
 import pandas as pd 
 import os
 
-tickers = pd.read_csv('TICKERS.csv')
+tickers_df = pd.read_csv('TICKERS.csv')
+tickers_ls = tickers_df.SECTOR.unique()
 st.write(tickers)
