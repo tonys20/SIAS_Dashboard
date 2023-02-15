@@ -5,7 +5,7 @@ import os
 import datetime
 import plotly.express as px
 
-tickers_df = pd.read_csv('TICKERS.csv')
+tickers_df = pd.read_csv('TICKERS2.csv')
 sectors_ls = tickers_df.SECTOR.unique()
 tickers_dic = {sectors_ls[i]:list(tickers_df[tickers_df['SECTOR']==sectors_ls[i]]['TICKER']) for i in range(len(sectors_ls))}
 
