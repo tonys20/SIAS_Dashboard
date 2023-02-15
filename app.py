@@ -20,21 +20,21 @@ def get_target(sector):
 sector_selected = st.selectbox('Choose Sector:',sectors_ls)
 df = get_target(sector_selected)
 
-start_time = pd.to_datetime(st.date_input(
+start_time = st.date_input(
     'From:',
     value = datetime.date(1999, 11, 30),
     min_value = datetime.date(1999, 11, 30),
     max_value = datetime.date.today()
-))
+)
 
-end_time = pd.to_datetime(st.date_input(
+end_time = st.date_input(
     'To:',
     value = datetime.date(1999, 11, 30),
     min_value = datetime.date(1999, 11, 30),
     max_value = datetime.date.today()
-))
+)
 
-custom_df = df[df.index>start_time & df.index<end_time]
+custom_df = df.loc[df['Date']>start_time & df['Date']<end_time]
 
 def ret_calc(df):
     output = pd.DataFrame()
