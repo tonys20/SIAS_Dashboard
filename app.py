@@ -1,7 +1,7 @@
 import streamlit as st
 import yfinance as yf 
 import pandas as pd 
-
+import os
 
 def get_tickers():
     targetdir = os.path.join(os.getcwd(), 'tickers')
