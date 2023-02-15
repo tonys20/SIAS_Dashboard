@@ -33,6 +33,8 @@ with st.sidebar:
         min_value = datetime.date(1999, 11, 30),
         max_value = datetime.date.today()
     )
+    charts_ls = ['cumulative', 'daily']
+    chart_type = st.selectbox('chart type', charts_ls)
 
 def ret_calc(df):
     output = pd.DataFrame()
@@ -47,6 +49,10 @@ custom_df = df.loc[str(start_time): str(end_time)]
 ret_df = ret_calc(custom_df)
 st.write(ret_df)
 
-charts_ls = ['cumulative', 'daily']
+if chart_type == 'cumulative':
+    yvar = 'cum_return'
+elif chart_type == 'daily':
+    yvar = 'sector_return'
+
 fig = px.line(ret_df, y = 'cum_return')
 st.plotly_chart(fig)
