@@ -16,7 +16,9 @@ def get_target(sector):
     for ticker in tickers_dic[sector]:
         output[f'{ticker} Adj Close'] = yf.download(tickers = ticker, start ='1999-11-30', end =str(today), interval ='1d')['Adj Close']
     return output
-df = get_target('Industrials')
+
+sector_selected = st.selectbox('Choose Sector:',sectors_ls)
+df = get_target(sector_selected)
 
 start_time = st.date_input(
     'From:',
