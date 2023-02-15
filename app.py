@@ -41,6 +41,7 @@ def ret_calc(df):
     for col in df.columns:
         output[f'{col} return'] = df[col]/df[col].shift(1)-1
         output['sector_return'] = df.sum(axis = 1)/df.sum(axis = 1).shift(1) - 1
+        output['cum_return'] = df.sum(axis = 1)/df.sum(axis = 1)[0] - 1
     return output
 ret_df = ret_calc(custom_df)
 st.write(ret_df)
