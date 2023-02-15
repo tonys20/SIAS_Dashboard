@@ -56,5 +56,5 @@ elif chart_type == 'daily':
     yvar = 'sector_return'
     y_label = f'Daily Return for {sector_selected}'
 
-fig = px.line(ret_df, y = yvar, color_discrete_sequence=["#ff97ff"]).update_layout(yaxis_title=y_label)
+fig = px.line(ret_df, y = yvar, color_discrete_sequence=["#8B0000"]).update_layout(yaxis_title=y_label)
 st.plotly_chart(fig)
