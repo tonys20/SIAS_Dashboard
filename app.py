@@ -29,7 +29,7 @@ with st.sidebar:
 
     end_time = st.date_input(
         'To:',
-        value = datetime.date(2022, 12, 30),
+        value = datetime.date(2023, 02, 15),
         min_value = datetime.date(1999, 11, 30),
         max_value = datetime.date.today()
     )
@@ -45,10 +45,9 @@ def ret_calc(df):
     return output
 
 df = get_target(sector_selected)
+
 custom_df = df.loc[str(start_time): str(end_time)]
 ret_df = ret_calc(custom_df)
-
-
 
 
 if chart_type == 'cumulative':
