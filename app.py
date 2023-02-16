@@ -95,6 +95,10 @@ st.write(df)
 
 custom_df = df.loc[str(start_time): str(end_time)]
 ret_df = ret_calc(custom_df)
+weight_df = pd.DataFrame()
+for col in custom_df.columns:
+    weight_df[col] = custom_df[col]/custom_df.sum
+st.write(weight_df)
 
 ticker_display = pd.DataFrame(tickers_dic[sector_selected])
 if chart_type == 'cumulative':
