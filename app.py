@@ -23,7 +23,7 @@ def get_target(sector):
     output = pd.DataFrame()
     for ticker in tickers_dic[sector]:
         try:
-            output[f'{ticker} Adj Close'] = yf.download(tickers = ticker, start ='1999-11-30', end =str(today), interval ='1d')['Adj Close']
+            output[f'{ticker} Adj Close'] = yf.download(tickers = ticker, start ='2013-11-30', end =str(today), interval ='1d')['Adj Close']
             share_count = benchmark_df[benchmark_df['TICKER'] == ticker]
             output[f'{ticker}'] = output[f'{ticker} Adj Close']*int(share_count['SHARES'])
             output.drop(columns = [f'{ticker} Adj Close'], inplace=True)
