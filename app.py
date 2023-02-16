@@ -99,15 +99,15 @@ with tab1:
         st.header('Ticker List')
         st.write(ticker_display)
 with tab2:
-    st.write('Nothing here yet')
     st.header('Selected Macros')
-    for df in macro_dic[sector_selected]:
-        fig = px.line(df)
-        st.plotly_chart(fig)
+    st.write('Nothing here yet')
+    
+    
 
 
 
 
 with tab3:
     st.write('Nothing here yet')
+    st.header('Portfolio Holdings')
 
