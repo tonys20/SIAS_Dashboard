@@ -88,7 +88,7 @@ for sector in sectors_ls:
 '''
 
 df = get_target(sector_selected)
- 
+st.write(df)
 
 custom_df = df.loc[str(start_time): str(end_time)]
 ret_df = ret_calc(custom_df)
