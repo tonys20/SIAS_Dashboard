@@ -36,8 +36,7 @@ with st.sidebar:
     )
     charts_ls = ['cumulative', 'daily']
     chart_type = st.selectbox('chart type', charts_ls)
-    image = Image('http://en.wikipedia.org/wiki/Special:FilePath/Anonymous_emblem.svg')
-    st.image(image, caption ='Just a cool picture')
+
 
 
 def ret_calc(df):
