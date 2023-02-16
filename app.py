@@ -105,7 +105,6 @@ with tab2:
     st.write('Nothing here yet')
     st.write('Macroeconomic indicators, release schedules and news')
     
-
 with tab3:
     st.write('Nothing here yet')
     st.write('ITD chart, fundamentals and some other cool stuff')
