@@ -48,7 +48,7 @@ with st.sidebar:
 
     start_time =st.date_input(
         'From:',
-        value = datetime.date(2023, 2, 13),
+        value = datetime.date(2023, 2, 10),
         min_value = datetime.date(1999, 11, 30),
         max_value = datetime.date.today()
     )
