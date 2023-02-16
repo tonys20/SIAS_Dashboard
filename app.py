@@ -57,7 +57,7 @@ elif chart_type == 'daily':
     yvar = 'sector_return'
     y_label = f'Daily Return for {sector_selected}'
 
-page1_title = '<p style="font-family:Courier; color:Black; font-size: 42px;">Sector Overview</p>'
+page1_title = '<p style="font-family:Courier; color:Black; font-size: 42px;">Dashboard Under Development</p>'
 st.markdown(page1_title, unsafe_allow_html=True)
 col1, col2 = st.columns([3,1])
 with col1:
