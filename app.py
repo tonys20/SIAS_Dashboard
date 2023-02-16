@@ -101,7 +101,10 @@ with tab1:
 with tab2:
     st.write('Nothing here yet')
     st.header('Selected Macros')
-    st.write(macro_dic[sector_selected])
+    for df in macro_dic[sector_selected]:
+        fig = px.line(df)
+        st.plotly_chart(fig)
+
 
 
 
