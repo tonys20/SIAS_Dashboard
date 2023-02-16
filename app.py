@@ -15,7 +15,7 @@ fred.set_api_key_file('FRED API Key.txt')
 fred.env_api_key_found()
 benchmark_df = pd.read_csv('benchmark.csv')
 benchmark_df['SHARES'] = benchmark_df['SHARES']
-st.write(benchmark_df.info())
+st.write(benchmark_df)
 
 @st.cache
 def get_target(sector):
