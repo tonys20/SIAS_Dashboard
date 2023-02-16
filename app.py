@@ -29,7 +29,7 @@ with st.sidebar:
 
     end_time = st.date_input(
         'To:',
-        value = datetime.date(2023, 02, 15),
+        value = datetime.date(2023, 2, 15),
         min_value = datetime.date(1999, 11, 30),
         max_value = datetime.date.today()
     )
