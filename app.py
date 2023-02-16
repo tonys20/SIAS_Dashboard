@@ -95,9 +95,12 @@ with tab1:
         st.write(ret_df)
         fig = px.line(ret_df, y = yvar, color_discrete_sequence=["#8B0000"]).update_layout(yaxis_title=y_label)
         st.plotly_chart(fig) 
+        fig = px.histogram(ret_df, x='sector_return')
+        st.plotly_chart(fig)
     with col2:
         st.header('Ticker List')
         st.write(ticker_display)
+
 with tab2:
     st.write('Nothing here yet')
     st.write('Macroeconomic indicators, release schedules and news')
