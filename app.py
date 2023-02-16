@@ -95,7 +95,7 @@ with tab1:
         st.write(ret_df)
         fig = px.line(ret_df, y = yvar, color_discrete_sequence=["#8B0000"]).update_layout(yaxis_title=y_label)
         st.plotly_chart(fig) 
-        fig = px.histogram(ret_df, x='sector_return', histnorm = 'probability density').update_layout(xaxis_title ='daily return')
+        fig = px.histogram(ret_df, x='sector_return', histnorm = 'probability density', marginal='box').update_layout(xaxis_title ='daily return')
         st.plotly_chart(fig)
     with col2:
         st.header('Ticker List')
