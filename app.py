@@ -89,7 +89,7 @@ tab1, tab2, tab3 = st.tabs(['Overview', 'Macro', 'Portfolio Holdings'])
 with tab1:
     page1_title = '<p style="font-family:Courier; color:Black; font-size: 42px;">Dashboard Under Development</p>'
     st.markdown(page1_title, unsafe_allow_html=True)
-    col1, col2 = st.columns([2,1])
+    col1, col2 = st.columns([3,1])
     with col1:
         st.header('Returns and Charts')
         st.write('df view for dev only')
