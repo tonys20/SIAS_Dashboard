@@ -15,12 +15,14 @@ fred.set_api_key_file('FRED API Key.txt')
 fred.env_api_key_found()
 benchmark_df = pd.read_csv('benchmark.csv')
 st.write(benchmark_df)
+
 @st.cache
 def get_target(sector):
     today = datetime.date.today()
     output = pd.DataFrame()
     for ticker in tickers_dic[sector]:
         output[f'{ticker} Adj Close'] = yf.download(tickers = ticker, start ='1999-11-30', end =str(today), interval ='1d')['Adj Close']
+        output[f'{ticker} Market Value'] = output[f'{ticker} Adj Close']*benchmark_df.loc[benchmark_df[TICKER]==ticker]['Shares']
     return output
 
 # Macro Indicators from Fred
