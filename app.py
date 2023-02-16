@@ -5,6 +5,7 @@ import os
 import datetime
 import plotly.express as px
 from PIL import Image
+from full_fred.fred import Fred
 
 tickers_df = pd.read_csv('TICKERS2.csv')
 sectors_ls = tickers_df.SECTOR.unique()
