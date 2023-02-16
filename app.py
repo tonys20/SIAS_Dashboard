@@ -10,7 +10,9 @@ from full_fred.fred import Fred
 tickers_df = pd.read_csv('TICKERS2.csv')
 sectors_ls = tickers_df.SECTOR.unique()
 tickers_dic = {sectors_ls[i]:list(tickers_df[tickers_df['SECTOR']==sectors_ls[i]]['TICKER']) for i in range(len(sectors_ls))}
-
+fred = Fred('FRED API Key.txt')
+fred.set_api_key_file('FRED API Key.txt')
+fred.env_api_key_found()
 
 @st.cache
 def get_target(sector):
