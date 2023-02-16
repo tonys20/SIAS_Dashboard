@@ -85,7 +85,7 @@ elif chart_type == 'daily':
     yvar = 'sector_return'
     y_label = f'Daily Return for {sector_selected}'
 
-tab1, tab2, tab3 = st.tabs(['Overview', 'Macro', 'Placeholder2'])
+tab1, tab2, tab3 = st.tabs(['Overview', 'Macro', 'Portfolio Holdings'])
 with tab1:
     page1_title = '<p style="font-family:Courier; color:Black; font-size: 42px;">Dashboard Under Development</p>'
     st.markdown(page1_title, unsafe_allow_html=True)
@@ -99,11 +99,11 @@ with tab1:
         st.header('Ticker List')
         st.write(ticker_display)
 with tab2:
-    st.header('Selected Macros')
     st.write('Nothing here yet')
+    st.write('Macroeconomic indicators, release schedules and news')
     
 
 with tab3:
     st.write('Nothing here yet')
-    st.header('Portfolio Holdings')
+    st.write('ITD chart, fundamentals and some other cool stuff')
 
