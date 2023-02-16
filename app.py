@@ -102,10 +102,6 @@ with tab2:
     st.header('Selected Macros')
     st.write('Nothing here yet')
     
-    
-
-
-
 
 with tab3:
     st.write('Nothing here yet')
