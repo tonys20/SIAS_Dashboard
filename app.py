@@ -23,12 +23,12 @@ def get_target(sector):
     return output
 
 # Macro Indicators from Fred
-fred_dic = {'industrials': ['DGORDER', 'INDPRO','PPIACO'],
-            'consumer_disc':['PCE', 'DSPI'],
-            'consumers': ['DFXARC1M027SBEA', 'CPIUFDNS', 'A229RX0A048NBEA'],
-            'health_care':['HLTHSCPCHCSA', 'CPIMEDSL'],
-            'IT':['AITINO', 'AITITI', 'PCU5182105182105'],
-            'comm_serv':['DCOMRC1A027NBEA', 'CUSR0000SAE2','DSPIC96']}
+fred_dic = {'Industrials': ['DGORDER', 'INDPRO','PPIACO'],
+            'Consumer Discretionary':['PCE', 'DSPI'],
+            'Consumer Staples': ['DFXARC1M027SBEA', 'CPIUFDNS', 'A229RX0A048NBEA'],
+            'Health Care':['HLTHSCPCHCSA', 'CPIMEDSL'],
+            'Information Technology':['AITINO', 'AITITI', 'PCU5182105182105'],
+            'Communication Services':['DCOMRC1A027NBEA', 'CUSR0000SAE2','DSPIC96']}
 
 
 @st.cache
