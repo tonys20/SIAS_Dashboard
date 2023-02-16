@@ -49,7 +49,7 @@ df = get_target(sector_selected)
 custom_df = df.loc[str(start_time): str(end_time)]
 ret_df = ret_calc(custom_df)
 
-
+ticker_display = pd.DataFrame(tickers_dic[sector_selected])
 if chart_type == 'cumulative':
     yvar = 'cum_return'
     y_label = f'Cumulative Return for {sector_selected}'
@@ -69,7 +69,7 @@ with tab1:
         st.plotly_chart(fig) 
     with col2:
         st.header('Constituent List')
-        st.write(tickers_dic[sector_selected])
+        st.write(ticker_display)
 with tab2:
     st.write('Nothing here yet')
 with tab3:
