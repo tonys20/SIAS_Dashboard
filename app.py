@@ -24,10 +24,12 @@ def get_target(sector):
     for ticker in tickers_dic[sector]:
         try:
             output[f'{ticker} Adj Close'] = yf.download(tickers = ticker, start ='1999-11-30', end =str(today), interval ='1d')['Adj Close']
-            shares_count = benchmark_df.query('TICKER== @ticker')['SHARES']
-            output[f'{ticker}_market_val'] = output[f'{ticker} Adj Close']*shares_count
+            share_count = benchmark_df[benchmark_df['TICKER'] == ticker]
+            output[f'{ticker}_market_val'] = output[f'{ticker} Adj Close']*int(share_count['SHARES'])
             output.drop(columns = [f'{ticker} Adj Close'], inplace=True)
         except KeyError:
+            pass
+        except TypeError:
             pass
     return output
 
