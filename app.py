@@ -80,10 +80,10 @@ ret_df = ret_calc(custom_df)
 ticker_display = pd.DataFrame(tickers_dic[sector_selected])
 if chart_type == 'cumulative':
     yvar = 'cum_return'
-    y_label = f'Cumulative Return for {sector_selected}'
+    y_label = f'Cumulative Return for {sector_selected} sector'
 elif chart_type == 'daily':
     yvar = 'sector_return'
-    y_label = f'Daily Return for {sector_selected}'
+    y_label = f'Daily Return for {sector_selected} sector'
 
 tab1, tab2, tab3 = st.tabs(['Overview', 'Macro', 'Portfolio Holdings'])
 with tab1:
