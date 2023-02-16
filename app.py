@@ -57,15 +57,21 @@ elif chart_type == 'daily':
     yvar = 'sector_return'
     y_label = f'Daily Return for {sector_selected}'
 
-page1_title = '<p style="font-family:Courier; color:Black; font-size: 42px;">Dashboard Under Development</p>'
-st.markdown(page1_title, unsafe_allow_html=True)
-col1, col2 = st.columns([3,1])
-with col1:
-    st.header('Returns and Charts')
-    st.write(ret_df)
-    fig = px.line(ret_df, y = yvar, color_discrete_sequence=["#8B0000"]).update_layout(yaxis_title=y_label)
-    st.plotly_chart(fig) 
-with col2:
-    st.header('Constituent List')
-    st.write(tickers_dic[sector_selected])
+tab1, tab2, tab3 = st.tabs(['Overview', 'Placeholder1', 'Placeholder2'])
+with tab1:
+    page1_title = '<p style="font-family:Courier; color:Black; font-size: 42px;">Dashboard Under Development</p>'
+    st.markdown(page1_title, unsafe_allow_html=True)
+    col1, col2 = st.columns([3,1])
+    with col1:
+        st.header('Returns and Charts')
+        st.write(ret_df)
+        fig = px.line(ret_df, y = yvar, color_discrete_sequence=["#8B0000"]).update_layout(yaxis_title=y_label)
+        st.plotly_chart(fig) 
+    with col2:
+        st.header('Constituent List')
+        st.write(tickers_dic[sector_selected])
+with tab2:
+    st.write('Nothing here yet')
+with tab3:
+    st.write('Nothing here yet')
 
