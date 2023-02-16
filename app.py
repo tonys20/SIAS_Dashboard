@@ -26,7 +26,7 @@ def get_target(sector):
             output[f'{ticker} Adj Close'] = yf.download(tickers = ticker, start ='1999-11-30', end =str(today), interval ='1d')['Adj Close']
             shares_count = benchmark_df.query('TICKER== @ticker')['SHARES']
             output[f'{ticker}_market_val'] = output[f'{ticker} Adj Close']*shares_count
-            output = output.drop(columns = [f'{ticker} Adj Close'])
+            output.drop(columns = [f'{ticker} Adj Close'], inplace=True)
         except KeyError:
             pass
     return output
