@@ -58,9 +58,9 @@ elif chart_type == 'daily':
     yvar = 'sector_return'
     y_label = f'Daily Return for {sector_selected}'
 
-tab1, tab2 = st.tabs('Overview', 'Details')
-with tab1:
-    st.write(ret_df)
-    fig = px.line(ret_df, y = yvar, color_discrete_sequence=["#8B0000"]).update_layout(yaxis_title=y_label)
-    st.plotly_chart(fig) 
+
+
+st.write(ret_df)
+fig = px.line(ret_df, y = yvar, color_discrete_sequence=["#8B0000"]).update_layout(yaxis_title=y_label)
+st.plotly_chart(fig) 
 
