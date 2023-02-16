@@ -67,5 +67,5 @@ with col1:
     st.plotly_chart(fig) 
 with col2:
     st.header('Constituent List')
-    st.table(tickers_dic[sector_selected])
+    st.write(tickers_dic[sector_selected])
 
