@@ -10,6 +10,7 @@ tickers_df = pd.read_csv('TICKERS2.csv')
 sectors_ls = tickers_df.SECTOR.unique()
 tickers_dic = {sectors_ls[i]:list(tickers_df[tickers_df['SECTOR']==sectors_ls[i]]['TICKER']) for i in range(len(sectors_ls))}
 
+
 @st.cache
 def get_target(sector):
     today = datetime.date.today()
@@ -17,6 +18,27 @@ def get_target(sector):
     for ticker in tickers_dic[sector]:
         output[f'{ticker} Adj Close'] = yf.download(tickers = ticker, start ='1999-11-30', end =str(today), interval ='1d')['Adj Close']
     return output
+
+# Macro Indicators from Fred
+fred_dic = {'industrials': ['DGORDER', 'INDPRO','PPIACO'],
+            'consumer_disc':['PCE', 'DSPI'],
+            'consumers': ['DFXARC1M027SBEA', 'CPIUFDNS', 'A229RX0A048NBEA'],
+            'health_care':['HLTHSCPCHCSA', 'CPIMEDSL'],
+            'IT':['AITINO', 'AITITI', 'PCU5182105182105'],
+            'comm_serv':['DCOMRC1A027NBEA', 'CUSR0000SAE2','DSPIC96']}
+
+
+@st.cache
+def get_series(dic):
+    output = {}
+    for sector in dic.keys():
+        output[sector]={}
+        for id in dic[sector]:
+            output[sector][id] = fred.get_series_df(id).drop(columns = ['realtime_start', 'realtime_end']).set_index('date', inplace=False)
+    return output
+
+macro_dic = get_series(fred_dic)
+
 with st.sidebar:
     sector_selected = st.selectbox('Choose Sector:',sectors_ls)
 
@@ -60,7 +82,7 @@ elif chart_type == 'daily':
     yvar = 'sector_return'
     y_label = f'Daily Return for {sector_selected}'
 
-tab1, tab2, tab3 = st.tabs(['Overview', 'Placeholder1', 'Placeholder2'])
+tab1, tab2, tab3 = st.tabs(['Overview', 'Macro', 'Placeholder2'])
 with tab1:
     page1_title = '<p style="font-family:Courier; color:Black; font-size: 42px;">Dashboard Under Development</p>'
     st.markdown(page1_title, unsafe_allow_html=True)
@@ -75,6 +97,11 @@ with tab1:
         st.write(ticker_display)
 with tab2:
     st.write('Nothing here yet')
+    st.header('Selected Macros')
+    st.write(macro_dic[sector_selected])
+
+
+
 with tab3:
     st.write('Nothing here yet')
 
