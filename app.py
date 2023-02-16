@@ -15,7 +15,7 @@ fred.set_api_key_file('FRED API Key.txt')
 fred.env_api_key_found()
 benchmark_df = pd.read_csv('benchmark.csv')
 benchmark_df['SHARES'] = pd.to_numeric(benchmark_df['SHARES'])
-st.write(benchmark_df)
+
 
 @st.cache
 def get_target(sector):
@@ -28,8 +28,10 @@ def get_target(sector):
             output[f'{ticker}_market_val'] = output[f'{ticker} Adj Close']*int(share_count['SHARES'])
             output.drop(columns = [f'{ticker} Adj Close'], inplace=True)
         except KeyError:
+            print(ticker+'not loaded')
             pass
         except TypeError:
+            print(ticker+'not loaded')
             pass
     return output
 
@@ -83,15 +85,10 @@ def ret_calc(df):
         output['cum_return'] = df.sum(axis = 1)/df.sum(axis = 1)[0] - 1
     return output
 
-'''
-accum=dict()
 
-for sector in sectors_ls:
-    accum[sector] = get_target(sector)
-'''
 
 df = get_target(sector_selected)
-st.write(df)
+
 
 custom_df = df.loc[str(start_time): str(end_time)]
 ret_df = ret_calc(custom_df)
