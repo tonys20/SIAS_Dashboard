@@ -75,12 +75,14 @@ def ret_calc(df):
         output['cum_return'] = df.sum(axis = 1)/df.sum(axis = 1)[0] - 1
     return output
 
+'''
 accum=dict()
 
 for sector in sectors_ls:
     accum[sector] = get_target(sector)
+'''
 
-df = accum[sector_selected]
+df = get_target(sector_selected)
  
 
 custom_df = df.loc[str(start_time): str(end_time)]
