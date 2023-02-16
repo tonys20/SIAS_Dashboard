@@ -21,9 +21,12 @@ def get_target(sector):
     today = datetime.date.today()
     output = pd.DataFrame()
     for ticker in tickers_dic[sector]:
-        output[f'{ticker} Adj Close'] = yf.download(tickers = ticker, start ='1999-11-30', end =str(today), interval ='1d')['Adj Close']
-        output[f'{ticker}_market_val'] = output[f'{ticker} Adj Close']*benchmark_df[benchmark_df['TICKER']==ticker]['SHARES']
-        output = output.drop(columns = [f'{ticker} Adj Close'])
+        try:
+            output[f'{ticker} Adj Close'] = yf.download(tickers = ticker, start ='1999-11-30', end =str(today), interval ='1d')['Adj Close']
+            output[f'{ticker}_market_val'] = output[f'{ticker} Adj Close']*benchmark_df[benchmark_df['TICKER']==ticker]['SHARES']
+            output = output.drop(columns = [f'{ticker} Adj Close'])
+        except KeyError:
+            pass
     return output
 
 # Macro Indicators from Fred
