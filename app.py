@@ -59,8 +59,13 @@ elif chart_type == 'daily':
 
 page1_title = '<p style="font-family:Courier; color:Black; font-size: 42px;">Sector Overview</p>'
 st.markdown(page1_title, unsafe_allow_html=True)
-
-st.write(ret_df)
-fig = px.line(ret_df, y = yvar, color_discrete_sequence=["#8B0000"]).update_layout(yaxis_title=y_label)
-st.plotly_chart(fig) 
+col1, col2 = st.columns(2)
+with col1:
+    st.header('Returns and Charts')
+    st.write(ret_df)
+    fig = px.line(ret_df, y = yvar, color_discrete_sequence=["#8B0000"]).update_layout(yaxis_title=y_label)
+    st.plotly_chart(fig) 
+with col2:
+    st.header('Constituent List')
+    st.write(tickers_dic[sector_selected])
 
