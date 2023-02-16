@@ -58,7 +58,8 @@ elif chart_type == 'daily':
     yvar = 'sector_return'
     y_label = f'Daily Return for {sector_selected}'
 
-
+page1_title = '<p style="font-family:Courier; color:Blue; font-size: 20px;">Sector Overview</p>'
+st.markdown(page1_title, unsafe_allow_html=True)
 
 st.write(ret_df)
 fig = px.line(ret_df, y = yvar, color_discrete_sequence=["#8B0000"]).update_layout(yaxis_title=y_label)
