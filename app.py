@@ -4,6 +4,7 @@ import pandas as pd
 import os
 import datetime
 import plotly.express as px
+from PIL import Image
 
 tickers_df = pd.read_csv('TICKERS2.csv')
 sectors_ls = tickers_df.SECTOR.unique()
@@ -35,6 +36,9 @@ with st.sidebar:
     )
     charts_ls = ['cumulative', 'daily']
     chart_type = st.selectbox('chart type', charts_ls)
+    image = Image('http://en.wikipedia.org/wiki/Special:FilePath/Anonymous_emblem.svg')
+    st.image(image, caption ='Just a cool picture')
+
 
 def ret_calc(df):
     output = pd.DataFrame()
